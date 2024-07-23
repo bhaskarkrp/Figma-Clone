@@ -38,10 +38,9 @@ export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 
-export function generateRandomName(): string {
-  const randomAdjective =
-    adjectives[Math.floor(Math.random() * adjectives.length)];
-  const randomAnimal = animals[Math.floor(Math.random() * animals.length)];
+export function generateRandomName(id: number): string {
+  const randomAnimal = animals[id % animals.length];
+  const randomAdjective = adjectives[id % adjectives.length];
 
   return `${randomAdjective} ${randomAnimal}`;
 }

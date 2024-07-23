@@ -1,11 +1,11 @@
-import { useOthers, useSelf } from "@liveblocks/react";
+import { useSelf } from "@liveblocks/react";
 import { Avatar } from "./Avatar";
 import styles from "./index.module.css";
 import { useMemo } from "react";
-import { generateRandomName } from "@/lib/utils";
+import { useGetUsers } from "./useGetUsers";
 
 const ActiveUsers = () => {
-  const users = useOthers();
+  const users = useGetUsers();
   const currentUser = useSelf();
   const hasMoreUsers = users.length > 3;
 
@@ -20,13 +20,9 @@ const ActiveUsers = () => {
             />
           )}
 
-          {users.slice(0, 3).map(({ connectionId }) => {
+          {users.slice(0, 3).map(({ connectionId, name }) => {
             return (
-              <Avatar
-                key={connectionId}
-                name={`${generateRandomName()} - ${connectionId}`}
-                otherStyles="-ml-3"
-              />
+              <Avatar key={connectionId} name={name} otherStyles="-ml-3" />
             );
           })}
 

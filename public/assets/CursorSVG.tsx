@@ -1,4 +1,4 @@
-function CursorSVG({ color, name }: { color: string; name: string }) {
+function CursorSVG({ color, name }: { color: string; name?: string }) {
   return (
     <div>
       <svg
@@ -15,7 +15,7 @@ function CursorSVG({ color, name }: { color: string; name: string }) {
           fill={color}
         />
       </svg>
-      {name ?? "unknown"}
+      {name ?? ""}
     </div>
   );
 }

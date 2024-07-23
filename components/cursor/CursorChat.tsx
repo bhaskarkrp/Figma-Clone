@@ -43,7 +43,7 @@ const CursorChat = ({
           <CursorSVG color="#000" />
 
           <div
-            className="absolute left-2 top-5 bg-blue-500 px-4 py-2 text-sm leading-relaxed rounded-[20px] text-white"
+            className="absolute left-2 top-0 bg-blue-500 px-4 py-2 text-sm leading-relaxed rounded-[20px] text-white"
             onKeyUp={(e) => e.stopPropagation()}
           >
             {cursorState.previousMessage && (

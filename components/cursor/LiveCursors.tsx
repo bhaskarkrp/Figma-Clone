@@ -2,23 +2,23 @@ import React from "react";
 import Cursor from "./Cursor";
 import { COLORS } from "@/constants";
 import { useOthers } from "@liveblocks/react";
+import { useGetUsers } from "../users/useGetUsers";
 
 const LiveCursors = () => {
   const users = useOthers();
+  const modifiedUsers = useGetUsers();
 
-  return users.map(({ connectionId, presence }) => {
+  return users.map(({ connectionId, presence }, index) => {
     if (!presence?.cursor) return null;
-
-    console.log({ presence });
 
     return (
       <Cursor
         key={connectionId}
-        color={COLORS[Number(connectionId) % COLORS.length]}
+        color={modifiedUsers?.[index].color}
         x={presence.cursor.x}
         y={presence.cursor.y}
         message={presence.message || ""}
-        name={connectionId.toString()}
+        name={modifiedUsers?.[index].name}
       />
     );
   });
