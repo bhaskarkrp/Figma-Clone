@@ -10,7 +10,6 @@ import {
 } from "react";
 import { Slot } from "@radix-ui/react-slot";
 import * as Portal from "@radix-ui/react-portal";
-// import { ComposerSubmitComment } from "@liveblocks/react-comments/primitives";
 
 import { useCreateThread } from "@liveblocks/react";
 import { useMaxZIndex } from "@/lib/useMaxZIndex";
@@ -18,7 +17,6 @@ import { useMaxZIndex } from "@/lib/useMaxZIndex";
 import PinnedComposer from "./PinnedComposer";
 import NewThreadCursor from "./NewThreadCursor";
 import { ComposerSubmitComment } from "@liveblocks/react-ui";
-// import { ComposerSubmitComment } from "@liveblocks/react-comments";
 
 type ComposerCoords = null | { x: number; y: number };
 

@@ -1,8 +1,8 @@
 import { useOthers, useSelf } from "@liveblocks/react";
 import { Avatar } from "./Avatar";
 import styles from "./index.module.css";
+import { useMemo } from "react";
 import { generateRandomName } from "@/lib/utils";
-import { useCallback, useMemo } from "react";
 
 const ActiveUsers = () => {
   const users = useOthers();
@@ -20,11 +20,11 @@ const ActiveUsers = () => {
             />
           )}
 
-          {users.slice(0, 3).map(({ connectionId, info }) => {
+          {users.slice(0, 3).map(({ connectionId }) => {
             return (
               <Avatar
                 key={connectionId}
-                name={generateRandomName()}
+                name={`${generateRandomName()} - ${connectionId}`}
                 otherStyles="-ml-3"
               />
             );

@@ -30,7 +30,7 @@ export const CommentsOverlay = () => {
     <div>
       {threads?.length &&
         threads
-          .filter((thread) => !thread.metadata.resolved)
+          .filter((thread) => !thread.resolved)
           .map((thread) => (
             <OverlayThread
               key={thread.id}

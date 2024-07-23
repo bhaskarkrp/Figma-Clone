@@ -5,15 +5,16 @@ type Props = {
   x: number;
   y: number;
   message: string;
+  name: string;
 };
 
-const Cursor = ({ color, x, y, message }: Props) => {
+const Cursor = ({ color, x, y, message, name }: Props) => {
   return (
     <div
       className="pointer-events-none absolute top-0 left-0"
       style={{ transform: `translateX(${x}px) translateY(${y}px)` }}
     >
-      <CursorSVG color={color} />
+      <CursorSVG color={color} name={name} />
 
       {/* Message */}
       {message && (

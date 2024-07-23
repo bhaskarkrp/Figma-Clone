@@ -4,9 +4,9 @@ import { COLORS } from "@/constants";
 import { useOthers } from "@liveblocks/react";
 
 const LiveCursors = () => {
-  const others = useOthers();
+  const users = useOthers();
 
-  return others.map(({ connectionId, presence }) => {
+  return users.map(({ connectionId, presence }) => {
     if (!presence?.cursor) return null;
 
     console.log({ presence });
@@ -18,6 +18,7 @@ const LiveCursors = () => {
         x={presence.cursor.x}
         y={presence.cursor.y}
         message={presence.message || ""}
+        name={connectionId.toString()}
       />
     );
   });
